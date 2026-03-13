@@ -1,0 +1,27 @@
+@if (project; as item) {
+  <article class="article">
+    <app-article-header
+      eyebrow="Project Feature"
+      [src]="item.image"
+      [alt]="item.imageAlt || item.title"
+      [headline]="item.title"
+      [deck]="item.subtitle"
+    ></app-article-header>
+
+    <div class="article-body">
+      @for (paragraph of item.details; track paragraph) {
+        <p>{{ paragraph }}</p>
+      }
+    </div>
+
+    <app-tag-list [tags]="item.tags"></app-tag-list>
+
+    @if (item.repoUrl) {
+      <p><a class="btn btn-secondary" [href]="item.repoUrl" target="_blank" rel="noopener">Open project source code</a></p>
+    }
+
+    <a routerLink="/projects" class="btn btn-secondary">Back to Projects</a>
+  </article>
+} @else {
+  <app-missing-item heading="Project not found" backLabel="Back to Projects" backRoute="/projects"></app-missing-item>
+}

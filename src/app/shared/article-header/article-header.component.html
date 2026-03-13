@@ -1,0 +1,12 @@
+<p class="eyebrow">{{ eyebrow() }}</p>
+<ng-content select="[slot=image]" />
+@if (src()) {
+  <img class="article-figure" [src]="src()" [alt]="alt() || headline()" />
+}
+<h1>{{ headline() }}</h1>
+@if (deck()) {
+  <p class="deck">{{ deck() }}</p>
+}
+@if (meta()) {
+  <p class="meta">{{ meta() }}</p>
+}

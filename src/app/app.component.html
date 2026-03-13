@@ -1,8 +1,8 @@
 <div class="page-shell">
   <header class="masthead">
     <p class="issue">Issue: {{ issueLabel }}</p>
-    <a routerLink="/" class="brand">The Ghibli613 Chronicle</a>
-    <p class="tagline">Research, Engineering, and Product Stories</p>
+    <a routerLink="/" class="brand">{{ appName }}</a>
+    <p class="tagline">{{ appDescription }}</p>
   </header>
 
   <header class="site-header">
@@ -22,5 +22,12 @@
   <footer class="site-footer">
     <p>© {{ year }} ghibli613</p>
     <p>Built with Angular, designed to evolve with future projects and publications.</p>
+    <p>
+      <a [href]="socialLinks.github" target="_blank" rel="noopener">GitHub</a>
+      ·
+      <a [href]="socialLinks.linkedin" target="_blank" rel="noopener">LinkedIn</a>
+      ·
+      <a [href]="emailLink">Contact</a>
+    </p>
   </footer>
 </div>
