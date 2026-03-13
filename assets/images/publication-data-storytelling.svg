@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Data storytelling publication illustration">
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <rect x="60" y="45" width="1080" height="540" fill="#f9f9f9" stroke="#111111" stroke-width="4"/>
+  <rect x="110" y="95" width="980" height="42" fill="#111111"/>
+  <rect x="110" y="170" width="980" height="2" fill="#111111"/>
+  <rect x="110" y="205" width="980" height="2" fill="#111111"/>
+  <rect x="110" y="240" width="980" height="2" fill="#111111"/>
+  <rect x="110" y="290" width="980" height="260" fill="#ffffff" stroke="#111111" stroke-width="3"/>
+  <rect x="170" y="340" width="70" height="160" fill="#111111"/>
+  <rect x="280" y="390" width="70" height="110" fill="#4a4a4a"/>
+  <rect x="390" y="320" width="70" height="180" fill="#8a8a8a"/>
+  <rect x="500" y="360" width="70" height="140" fill="#b3b3b3"/>
+  <rect x="610" y="300" width="70" height="200" fill="#d0d0d0"/>
+  <rect x="740" y="340" width="300" height="16" fill="#444"/>
+  <rect x="740" y="372" width="260" height="12" fill="#888"/>
+  <rect x="740" y="398" width="290" height="12" fill="#aaa"/>
+</svg>
