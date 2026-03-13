@@ -1,0 +1,27 @@
+:host {
+  display: block;
+}
+
+.logo-frame {
+  --logo-scale: 1;
+  --logo-position: center;
+  --logo-padding: 0.8rem;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  margin-bottom: 0.65rem;
+  background: #ffffff;
+  padding: var(--logo-padding);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: var(--logo-position);
+  transform: scale(var(--logo-scale));
+  transform-origin: center;
+}

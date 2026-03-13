@@ -1,0 +1,5 @@
+@if (src()) {
+  <img class="news-thumb" [src]="src()" [alt]="alt()" />
+} @else {
+  <div class="news-thumb-placeholder" aria-hidden="true">No image available</div>
+}

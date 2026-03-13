@@ -1,0 +1,24 @@
+<section class="section-head">
+  <p class="eyebrow">Experience Desk</p>
+  <h1>Professional Experience</h1>
+  <p>A newsroom-like archive of roles, collaborations, and key achievements.</p>
+</section>
+
+<section class="news-grid">
+  @for (item of experiences; track item.slug) {
+    <a class="news-card" [routerLink]="['/experience', item.slug]">
+      <app-logo-frame
+        [src]="item.image"
+        [alt]="item.imageAlt || item.role"
+        [scale]="item.logoScale ?? 1"
+        [position]="item.logoPosition ?? 'center'"
+        [padding]="item.logoPadding ?? '0.65rem'"
+      ></app-logo-frame>
+      <p class="kicker">{{ item.period }} · {{ item.location }}</p>
+      <h2>{{ item.role }}</h2>
+      <p class="subtitle">{{ item.organization }}</p>
+      <p>{{ item.summary }}</p>
+      <span class="cta">Read full entry</span>
+    </a>
+  }
+</section>

@@ -1,0 +1,12 @@
+@if (src()) {
+  <div
+    class="logo-frame"
+    [style.--logo-scale]="scale()"
+    [style.--logo-position]="position()"
+    [style.--logo-padding]="padding()"
+  >
+    <img class="logo-img" [src]="src()" [alt]="alt()" />
+  </div>
+} @else {
+  <div class="news-thumb-placeholder" aria-hidden="true">No image available</div>
+}

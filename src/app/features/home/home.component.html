@@ -1,0 +1,54 @@
+<section class="front-page">
+  <article class="lead-story" [routerLink]="['/projects', leadProject.slug]">
+    <p class="eyebrow">Front Page Story</p>
+    @if (leadProject.image) {
+      <img class="article-figure" [src]="leadProject.image" [alt]="leadProject.imageAlt || leadProject.title" />
+    } @else {
+      <div class="news-thumb-placeholder" aria-hidden="true">No image available</div>
+    }
+    <h1>{{ leadProject.title }}</h1>
+    <p class="deck">{{ leadProject.subtitle }}</p>
+    <p>{{ leadProject.summary }}</p>
+    <span class="cta">Continue reading</span>
+  </article>
+
+  <div class="side-column">
+    <a class="news-card" [routerLink]="['/publications', spotlightPublication.slug]">
+      <app-news-thumb [src]="spotlightPublication.image" [alt]="spotlightPublication.imageAlt || spotlightPublication.title"></app-news-thumb>
+      <p class="kicker">Scientific Publishing</p>
+      <h2>{{ spotlightPublication.title }}</h2>
+      <p>{{ spotlightPublication.note }}</p>
+      <span class="cta">Read publication</span>
+    </a>
+
+    <a class="news-card" [routerLink]="['/experience', spotlightExperience.slug]">
+      <app-logo-frame
+        [src]="spotlightExperience.image"
+        [alt]="spotlightExperience.imageAlt || spotlightExperience.role"
+        [scale]="spotlightExperience.logoScale ?? 1"
+        [position]="spotlightExperience.logoPosition ?? 'center'"
+        [padding]="spotlightExperience.logoPadding ?? '0.8rem'"
+      ></app-logo-frame>
+      <p class="kicker">Experience Desk</p>
+      <h2>{{ spotlightExperience.role }}</h2>
+      <p>{{ spotlightExperience.summary }}</p>
+      <span class="cta">Read experience</span>
+    </a>
+  </div>
+</section>
+
+<section class="section-head">
+  <p class="eyebrow">More Stories</p>
+  <h2>Additional Project Features</h2>
+</section>
+
+<section class="news-grid">
+  @for (item of spotlightProjects; track item.slug) {
+    <a class="news-card" [routerLink]="['/projects', item.slug]">
+      <app-news-thumb [src]="item.image" [alt]="item.imageAlt || item.title"></app-news-thumb>
+      <h3>{{ item.title }}</h3>
+      <p>{{ item.summary }}</p>
+      <span class="cta">Read project</span>
+    </a>
+  }
+</section>

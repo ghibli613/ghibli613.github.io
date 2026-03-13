@@ -1,0 +1,64 @@
+export interface ProjectItem {
+  slug: string;
+  title: string;
+  subtitle: string;
+  summary: string;
+  image?: string;
+  imageAlt?: string;
+  tags: string[];
+  publishedOn: string;
+  details: string[];
+  repoUrl?: string;
+}
+
+export const featuredProjects: ProjectItem[] = [
+  {
+    slug: 'seam-carving-cuda',
+    title: 'Seam Carving with CUDA',
+    subtitle: 'GPU-accelerated content-aware image resizing.',
+    summary: 'Implemented seam carving on CUDA to speed up content-aware image resizing compared to CPU-based methods.',
+    image: 'assets/images/project-dashboard.svg',
+    imageAlt: 'GPU image processing project illustration',
+    tags: ['CUDA', 'Computer Vision', 'Image Processing'],
+    publishedOn: '2021',
+    details: [
+      'Implemented seam identification and removal with CUDA kernels for higher throughput on large images.',
+      'Benchmarked performance against CPU baselines and observed notable acceleration for resizing tasks.'
+    ],
+    repoUrl: 'https://github.com/ghibli613/Seamcarving'
+  },
+  {
+    slug: 'rag-ai-chatbot-economy-news',
+    title: 'RAG AI Chatbot for Economy News',
+    subtitle: 'Retrieval-augmented assistant for realtime economic updates.',
+    summary: 'Built a chatbot that integrates retrieval with language models to summarize and answer questions about economy news.',
+    image: 'assets/images/project-case-study.svg',
+    imageAlt: 'RAG and data retrieval system illustration',
+    tags: ['RAG', 'LLM', 'Information Retrieval'],
+    publishedOn: '2025',
+    details: [
+      'Integrated retrieval across multiple sources, including news APIs and structured data feeds.',
+      'Designed the answer pipeline to improve factual grounding for market and policy updates.'
+    ],
+    repoUrl: 'https://github.com/Halsey77/LLM'
+  },
+  {
+    slug: 'image-processing-ml-entries',
+    title: 'Image Processing and ML Entry Projects',
+    subtitle: 'Foundational experiments across vision and generative modeling.',
+    summary: 'Completed multiple foundational projects including image processing pipelines, GAN digit generation, and Vision Transformer exploration.',
+    image: 'assets/images/project-cms.svg',
+    imageAlt: 'Machine learning experimentation project illustration',
+    tags: ['GAN', 'ViT', 'Computer Vision'],
+    publishedOn: '2022',
+    details: [
+      'Implemented core image processing operations including filtering, edge detection, and feature extraction.',
+      'Built MNIST digit generation experiments with GANs and tested ViT models in Colab-based workflows.',
+      'Notebook links from CV were preserved for reproducibility and sharing.'
+    ]
+  }
+];
+
+export function findProjectBySlug(slug: string): ProjectItem | undefined {
+  return featuredProjects.find((project) => project.slug === slug);
+}

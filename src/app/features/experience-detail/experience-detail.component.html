@@ -1,0 +1,32 @@
+@if (experience; as item) {
+  <article class="article">
+    <app-article-header
+      eyebrow="Experience Report"
+      [headline]="item.role"
+      [deck]="item.organization"
+      [meta]="item.period + ' · ' + item.location"
+    >
+      <app-logo-frame
+        slot="image"
+        [src]="item.image"
+        [alt]="item.imageAlt || item.role"
+        [scale]="item.logoScale ?? 1"
+        [position]="item.logoPosition ?? 'center'"
+        [padding]="item.logoPadding ?? '1rem'"
+      ></app-logo-frame>
+    </app-article-header>
+
+    <p>{{ item.summary }}</p>
+
+    <h2>Highlights</h2>
+    <ul class="highlights">
+      @for (line of item.highlights; track line) {
+        <li>{{ line }}</li>
+      }
+    </ul>
+
+    <a routerLink="/experience" class="btn btn-secondary">Back to Experience</a>
+  </article>
+} @else {
+  <app-missing-item heading="Experience entry not found" backLabel="Back to Experience" backRoute="/experience"></app-missing-item>
+}

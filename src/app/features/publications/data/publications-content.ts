@@ -1,0 +1,57 @@
+export interface PublicationItem {
+  slug: string;
+  title: string;
+  venue: string;
+  year: number;
+  publishedOn: string;
+  note: string;
+  image?: string;
+  imageAlt?: string;
+  details: string[];
+  paperUrl?: string;
+  paperSource?: 'arXiv' | 'IEEE' | 'Publisher';
+  repoUrl?: string;
+}
+
+export const publications: PublicationItem[] = [
+  {
+    slug: 'scene-graph-generation-image-understanding',
+    title: 'Scene Graph Generation for Image Understanding',
+    venue: 'arXiv preprint track',
+    year: 2025,
+    publishedOn: '2025',
+    note: 'Publication-focused writeup of scene graph generation methods and experiments for image understanding.',
+    image: 'assets/images/publication-visual-narratives.svg',
+    imageAlt: 'Scene graph generation research illustration',
+    details: [
+      'Formalized the task setup, evaluation criteria, and model improvements for scene graph generation.',
+      'Documented compatibility updates and reproducibility notes for current deep learning stacks.',
+      'Prepared publication-oriented narrative with methodology, experiments, and limitations.'
+    ],
+    paperUrl: 'https://arxiv.org/search/?query=scene+graph+generation+image+understanding&searchtype=all',
+    paperSource: 'arXiv',
+    repoUrl: 'https://github.com/ghibli613/SceneGraphBenchmark'
+  },
+  {
+    slug: 'graph-generation-anomalous-detection',
+    title: 'Graph Generation for Anomalous Detection',
+    venue: 'IEEE-style manuscript track',
+    year: 2025,
+    publishedOn: '2025',
+    note: 'Publication-oriented study of anomalous behavior detection in video using generated scene graphs.',
+    image: 'assets/images/publication-data-storytelling.svg',
+    imageAlt: 'Anomalous behavior graph research illustration',
+    details: [
+      'Used a graph-generation backbone to model and detect anomalous behavior from scene graphs.',
+      'Reported current limitations and outlined improvement directions including transfer learning and tuning.',
+      'Structured findings toward a paper submission format with clear future work statements.'
+    ],
+    paperUrl: 'https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=graph%20generation%20anomalous%20detection',
+    paperSource: 'IEEE',
+    repoUrl: 'https://github.com/Halsey77/usggen'
+  }
+];
+
+export function findPublicationBySlug(slug: string): PublicationItem | undefined {
+  return publications.find((publication) => publication.slug === slug);
+}

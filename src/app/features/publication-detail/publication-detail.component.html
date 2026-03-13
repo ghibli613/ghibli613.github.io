@@ -1,0 +1,30 @@
+@if (publication; as item) {
+  <article class="article">
+    <app-article-header
+      eyebrow="Scientific Publishing"
+      [src]="item.image"
+      [alt]="item.imageAlt || item.title"
+      [headline]="item.title"
+      [deck]="item.venue + ' · ' + item.year"
+      [meta]="'Published ' + item.publishedOn"
+    ></app-article-header>
+
+    <div class="article-body">
+      @for (paragraph of item.details; track paragraph) {
+        <p>{{ paragraph }}</p>
+      }
+    </div>
+
+    @if (item.paperUrl) {
+      <p><a class="btn btn-secondary" [href]="item.paperUrl" target="_blank" rel="noopener">Open paper on {{ item.paperSource || 'Publisher' }}</a></p>
+    }
+
+    @if (item.repoUrl) {
+      <p><a class="btn btn-secondary" [href]="item.repoUrl" target="_blank" rel="noopener">Open supporting repository</a></p>
+    }
+
+    <a routerLink="/publications" class="btn btn-secondary">Back to Publications</a>
+  </article>
+} @else {
+  <app-missing-item heading="Publication not found" backLabel="Back to Publications" backRoute="/publications"></app-missing-item>
+}
