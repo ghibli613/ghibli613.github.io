@@ -1,0 +1,33 @@
+@if (project; as item) {
+  <article class="article">
+    <p class="eyebrow">Project Feature</p>
+    @if (item.image) {
+      <img class="article-figure" [src]="item.image" [alt]="item.imageAlt || item.title" />
+    }
+    <h1>{{ item.title }}</h1>
+    <p class="deck">{{ item.subtitle }}</p>
+
+    <div class="article-body">
+      @for (paragraph of item.details; track paragraph) {
+        <p>{{ paragraph }}</p>
+      }
+    </div>
+
+    <ul class="tags">
+      @for (tag of item.tags; track tag) {
+        <li>{{ tag }}</li>
+      }
+    </ul>
+
+    @if (item.repoUrl) {
+      <p><a class="btn btn-secondary" [href]="item.repoUrl" target="_blank" rel="noopener">Open project source code</a></p>
+    }
+
+    <a routerLink="/projects" class="btn btn-secondary">Back to Projects</a>
+  </article>
+} @else {
+  <section class="missing">
+    <h1>Project not found</h1>
+    <a routerLink="/projects" class="btn btn-secondary">Back to Projects</a>
+  </section>
+}

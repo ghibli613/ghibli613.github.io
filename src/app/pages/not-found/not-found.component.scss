@@ -1,0 +1,23 @@
+.not-found {
+  min-height: 45vh;
+  display: grid;
+  align-content: center;
+  gap: 0.65rem;
+}
+
+.code {
+  margin: 0;
+  color: var(--accent-strong);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.not-found h1 {
+  margin: 0;
+  font-family: var(--font-display);
+}
+
+.not-found p {
+  margin: 0;
+  color: var(--text-soft);
+}

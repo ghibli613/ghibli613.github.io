@@ -1,0 +1,31 @@
+<section class="section-head">
+  <p class="eyebrow">Projects Desk</p>
+  <h1>Selected Work</h1>
+  <p>Each card opens a full article page with details and context.</p>
+</section>
+
+<section class="news-grid">
+  @for (project of projects; track project.slug) {
+    <article class="news-card clickable-card" [routerLink]="['/projects', project.slug]" tabindex="0" role="link">
+      @if (project.image) {
+        <img class="news-thumb" [src]="project.image" [alt]="project.imageAlt || project.title" />
+      } @else {
+        <div class="news-thumb-placeholder" aria-hidden="true">No image available</div>
+      }
+      <h2>{{ project.title }}</h2>
+      <p class="subtitle">{{ project.subtitle }}</p>
+      <p>{{ project.summary }}</p>
+      <ul class="tag-list">
+        @for (tag of project.tags; track tag) {
+          <li>{{ tag }}</li>
+        }
+      </ul>
+      <div class="card-actions">
+        <a class="btn btn-secondary" [routerLink]="['/projects', project.slug]" (click)="$event.stopPropagation()">Read full project</a>
+        @if (project.repoUrl) {
+          <a class="btn btn-secondary" [href]="project.repoUrl" target="_blank" rel="noopener" (click)="$event.stopPropagation()">Open source code</a>
+        }
+      </div>
+    </article>
+  }
+</section>

@@ -1,0 +1,23 @@
+.about {
+  max-width: 76ch;
+}
+
+.profile-photo {
+  width: min(280px, 100%);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  margin: 0.35rem 0 0.8rem;
+  display: block;
+}
+
+.about h1 {
+  margin: 0.4rem 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 5vw, 3rem);
+  line-height: 1.1;
+}
+
+.about p {
+  color: var(--text-soft);
+}

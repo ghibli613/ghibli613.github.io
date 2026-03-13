@@ -1,0 +1,32 @@
+@if (publication; as item) {
+  <article class="article">
+    <p class="eyebrow">Scientific Publishing</p>
+    @if (item.image) {
+      <img class="article-figure" [src]="item.image" [alt]="item.imageAlt || item.title" />
+    }
+    <h1>{{ item.title }}</h1>
+    <p class="deck">{{ item.venue }} · {{ item.year }}</p>
+    <p class="meta">Published {{ item.publishedOn }}</p>
+
+    <div class="article-body">
+      @for (paragraph of item.details; track paragraph) {
+        <p>{{ paragraph }}</p>
+      }
+    </div>
+
+    @if (item.paperUrl) {
+      <p><a class="btn btn-secondary" [href]="item.paperUrl" target="_blank" rel="noopener">Open paper on {{ item.paperSource || 'Publisher' }}</a></p>
+    }
+
+    @if (item.repoUrl) {
+      <p><a class="btn btn-secondary" [href]="item.repoUrl" target="_blank" rel="noopener">Open supporting repository</a></p>
+    }
+
+    <a routerLink="/publications" class="btn btn-secondary">Back to Publications</a>
+  </article>
+} @else {
+  <section class="missing">
+    <h1>Publication not found</h1>
+    <a routerLink="/publications" class="btn btn-secondary">Back to Publications</a>
+  </section>
+}

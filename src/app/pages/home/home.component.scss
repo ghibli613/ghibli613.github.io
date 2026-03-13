@@ -1,0 +1,67 @@
+.front-page {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 0.85rem;
+}
+
+.lead-story {
+  display: block;
+  text-decoration: none;
+  border: 1px solid var(--line);
+  background: var(--paper-soft);
+  padding: 1rem;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.lead-story:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.08);
+}
+
+.lead-story:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.lead-story h1 {
+  margin: 0.4rem 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.3rem);
+  line-height: 1;
+}
+
+.deck {
+  margin: 0;
+  font-style: italic;
+  color: var(--text-soft);
+}
+
+.lead-story p {
+  margin: 0.75rem 0 0;
+}
+
+.side-column {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.section-head {
+  margin-top: 1.5rem;
+}
+
+.section-head h2 {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+}
+
+.news-grid {
+  margin-top: 0.8rem;
+}
+
+@media (max-width: 900px) {
+  .front-page {
+    grid-template-columns: 1fr;
+  }
+}

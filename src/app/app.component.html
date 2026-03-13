@@ -1,0 +1,26 @@
+<div class="page-shell">
+  <header class="masthead">
+    <p class="issue">Issue: {{ issueLabel }}</p>
+    <a routerLink="/" class="brand">The Ghibli613 Chronicle</a>
+    <p class="tagline">Research, Engineering, and Product Stories</p>
+  </header>
+
+  <header class="site-header">
+    <nav aria-label="Primary navigation">
+      @for (item of navItems; track item.route) {
+        <a [routerLink]="item.route" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: item.route === '/' }">
+          {{ item.label }}
+        </a>
+      }
+    </nav>
+  </header>
+
+  <main class="site-main">
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer class="site-footer">
+    <p>© {{ year }} ghibli613</p>
+    <p>Built with Angular, designed to evolve with future projects and publications.</p>
+  </footer>
+</div>

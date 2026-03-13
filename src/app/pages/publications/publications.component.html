@@ -1,0 +1,29 @@
+<section class="section-head">
+  <p class="eyebrow">Scientific Publishing</p>
+  <h1>Publications and Research Output</h1>
+  <p>This archive is built for papers, preprints, posters, talks, and data resources.</p>
+</section>
+
+<section class="news-grid">
+  @for (item of publications; track item.slug) {
+    <article class="news-card clickable-card" [routerLink]="['/publications', item.slug]" tabindex="0" role="link">
+      @if (item.image) {
+        <img class="news-thumb" [src]="item.image" [alt]="item.imageAlt || item.title" />
+      } @else {
+        <div class="news-thumb-placeholder" aria-hidden="true">No image available</div>
+      }
+      <p class="kicker">{{ item.year }} · {{ item.venue }}</p>
+      <h2>{{ item.title }}</h2>
+      <p>{{ item.note }}</p>
+      <div class="card-actions">
+        @if (item.paperUrl) {
+          <a class="btn btn-secondary" [href]="item.paperUrl" target="_blank" rel="noopener" (click)="$event.stopPropagation()">Open on {{ item.paperSource || 'Publisher' }}</a>
+        }
+        <a class="btn btn-secondary" [routerLink]="['/publications', item.slug]" (click)="$event.stopPropagation()">Read summary</a>
+        @if (item.repoUrl) {
+          <a class="btn btn-secondary" [href]="item.repoUrl" target="_blank" rel="noopener" (click)="$event.stopPropagation()">Open code repository</a>
+        }
+      </div>
+    </article>
+  }
+</section>
